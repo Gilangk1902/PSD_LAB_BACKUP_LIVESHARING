@@ -17,6 +17,20 @@ namespace RAAMEN_Project.Repository
             return users;
         }
 
+        public List<User> GetAllCustomer()
+        {
+            List<User> cust = db.Users.Where(x => x.Roleid == 1).ToList();
+            //asumsi bahwa member itu punya Roleid == 1
+            return cust;
+        }
+
+        public List<User> GetAllStaff()
+        {
+            List<User> staff = db.Users.Where(x => x.Roleid == 2).ToList();
+            //asumsi bahwa member itu punya Roleid == 2
+            return staff;
+        }
+
         public User GetUser(int id)
         {
             return db.Users.Find(id);

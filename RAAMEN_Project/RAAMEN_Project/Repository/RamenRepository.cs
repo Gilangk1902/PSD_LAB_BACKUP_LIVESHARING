@@ -6,10 +6,44 @@ using RAAMEN_Project.Model;
 using RAAMEN_Project.Factory;
 
 namespace RAAMEN_Project.Repository
-{ 
-    public class RamenRepository
+{
+    public class RamenRepository : IRepository<Ramen>
     {
-        Database1Entities1 db = Database.getInstance();
+        public void Add(Ramen newRamen)
+        {
+            Database.getInstance().Ramen1.Add(newRamen);
+        }
+
+        public void Delete(int id)
+        {
+            Database.getInstance().Ramen1.Remove(GetById(id));
+        }
+
+        public List<Ramen> GetAll()
+        {
+            return Database.getInstance().Ramen1.ToList();
+        }
+
+        public Ramen GetById(int id)
+        {
+            return Database.getInstance().Ramen1.Find(id);
+        }
+
+        public void Update(int id, Ramen entity)
+        {
+            Ramen ramen = GetById(id);
+            ramen.id = entity.id;
+            ramen.Meatid = entity.Meatid;
+            ramen.Name = entity.Name;
+            ramen.Broth = entity.Broth;
+            ramen.Price = entity.Price;
+
+            Database.getInstance().SaveChanges();
+        }
+    }
+    /*public class RamenRepository
+    {
+        private Database1Entities1 db = Database.getInstance();
 
         public List<Ramen> getAllRamen()
         {
@@ -46,5 +80,5 @@ namespace RAAMEN_Project.Repository
             db.SaveChanges();
         }
 
-    }
+    }*/
 }

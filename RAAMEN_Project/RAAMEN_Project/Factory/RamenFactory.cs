@@ -10,12 +10,14 @@ namespace RAAMEN_Project.Factory
     {
         public static Ramen CreateRamen(int id, int meatId, string name, string broth, string price)
         {
-            Ramen ramen = new Ramen();
-            ramen.id = id;
-            ramen.Meatid = meatId;
-            ramen.Name = name;
-            ramen.Broth = broth;
-            ramen.Price = price;
+            Ramen ramen = new Ramen
+            {
+                id = id,
+                Meatid = meatId,
+                Name = name,
+                Broth = broth,
+                Price = price
+            };
 
             return ramen;
         }

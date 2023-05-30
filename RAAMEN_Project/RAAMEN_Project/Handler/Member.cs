@@ -7,37 +7,30 @@ using RAAMEN_Project.Model;
 
 namespace RAAMEN_Project.Handler
 {
-    public class Staff
+    public class Member
     {
-        
+
         RamenRepository ramenRepo = new RamenRepository();
         UserRepository userRepo = new UserRepository();
+        HeaderRepository headerRepo = new HeaderRepository();
 
         //BERHUBUNGAN SAMA RAMEN
-        public void insertRamen(int id, int meatId, string name, string broth, string price)
+        public List<Ramen> viewRamen()
         {
-            ramenRepo.addRamen(id, meatId, name, broth, price);
+            List<Ramen> ramens = ramenRepo.getAllRamen();
+            return ramens;
         }
 
-        public void updateRamen(int id, int meatId, string name, string broth, string price)
+        public Ramen orderRamen(int id)
         {
-            ramenRepo.updateRamen(id, meatId, name, broth, price);
-        }
-
-        public void delRamen(int id)
-        {
-            ramenRepo.delRamen(id);
+            Ramen ramen = ramenRepo.getRamen(id);
+            //IF order buton is pressed, THEN:
+            return ramen; //ni gw masi bingung antara di return ato langsung add ke cart aja
         }
         //------------------------------------------------------------
 
 
         //BERHUBUNGAN SAMA USER
-        public List<User> viewCustomers()
-        {
-            List<User> cust = userRepo.GetAllCustomer(); 
-            return cust;
-        }
-
         public User viewProfile(int id)
         {
             User user = userRepo.GetUser(id);
@@ -48,6 +41,14 @@ namespace RAAMEN_Project.Handler
             string password)
         {
             userRepo.updateUser(id, roleId, username, email, gender, password);
+        }
+        //------------------------------------------------------------
+
+        //TRANSACTION
+        public List<Header> viewTransactionHistory()
+        {
+            List<Header> transcationHistories = headerRepo.GetAll();
+            return transcationHistories;
         }
         //------------------------------------------------------------
     }
