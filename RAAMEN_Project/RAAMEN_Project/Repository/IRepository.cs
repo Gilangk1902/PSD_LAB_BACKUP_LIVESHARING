@@ -6,7 +6,7 @@ using System.Text;
 
 namespace RAAMEN_Project.Repository
 {
-    public interface  IRepository<T>
+    public interface IRepository<T>
     {
         List<T> GetAll();
         T GetById(int id);

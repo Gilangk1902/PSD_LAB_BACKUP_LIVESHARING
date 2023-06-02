@@ -38,6 +38,16 @@ namespace RAAMEN_Project.Handler
             meatRepository.Update(id, newMeat);
         }
 
-        
+        public List<String> GetAllNames()
+        {
+            List<String> names = (from m in meatRepository.GetDatabase1Entities1().Meats select m.name).ToList();
+            return names;
+        }
+
+        public int GetMeatId(string meat_selector)
+        {
+            return (from Meat in meatRepository.GetDatabase1Entities1()
+                    .Meats where Meat.name == meat_selector select Meat.id).FirstOrDefault();
+        }
     }
 }

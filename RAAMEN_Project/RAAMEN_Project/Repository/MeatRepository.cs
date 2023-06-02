@@ -9,7 +9,7 @@ namespace RAAMEN_Project.Repository
 {
     public class MeatRepository : IRepository<Meat>
     {
-        Database1Entities1 db = Database.getInstance();
+        private Database1Entities1 db = DatabaseSingleton.getInstance();
 
         public void Add(Meat meat)
         {
@@ -40,6 +40,11 @@ namespace RAAMEN_Project.Repository
             updatedMeat.name = newMeat.name;
 
             db.SaveChanges();
+        }
+
+        public Database1Entities1 GetDatabase1Entities1()
+        {
+            return db;
         }
     }
 }

@@ -8,11 +8,11 @@ namespace RAAMEN_Project.Factory
 {
     public class UserFactory
     {
-        public static User CreateUser(int id, int roleId, string username, string email, string gender,
+        //USER
+        public static User CreateUser(int roleId, string username, string email, string gender,
             string password)
         {
             User user = new User();
-            user.Id = id;
             user.Roleid = roleId;
             user.Username = username;
             user.Email = email;
@@ -22,6 +22,15 @@ namespace RAAMEN_Project.Factory
             return user;
         }
 
+        //ROLE
+        public static Role CreateRole(int id, string name)
+        {
+            Role role = new Role();
+            role.id = id;
+            role.name = name;
+
+            return role;
+        }
     }
 
 }

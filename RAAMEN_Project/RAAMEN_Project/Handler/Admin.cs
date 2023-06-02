@@ -10,8 +10,7 @@ namespace RAAMEN_Project.Handler
     public class Admin
     {
         UserRepository userRepo = new UserRepository();
-        HeaderRepository headerRepo = new HeaderRepository();
-        DetailRepository detailRepo = new DetailRepository();
+        TransactionRepository trRepo = new TransactionRepository();
 
 
         //BERHUBUNGAN SAMA USER
@@ -32,14 +31,8 @@ namespace RAAMEN_Project.Handler
         //BERHUBUNGAN SAMA TRANSACTION
         public List<Header> viewAllTransaction()
         {
-            List<Header> transactions = headerRepo.GetAll();
+            List<Header> transactions = trRepo.GetAllHeader();
             return transactions;
-        }
-
-        public List<Detail> viewReport()
-        {
-            List<Detail> reports = detailRepo.GetAll();//ini report tuh ngambil dari detail apa header ya
-            return reports;
         }
 
         //------------------------------------------------------------

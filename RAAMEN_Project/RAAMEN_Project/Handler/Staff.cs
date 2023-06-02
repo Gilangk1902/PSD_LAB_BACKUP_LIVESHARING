@@ -16,23 +16,26 @@ namespace RAAMEN_Project.Handler
         //BERHUBUNGAN SAMA RAMEN
         public void insertRamen(int id, int meatId, string name, string broth, string price)
         {
-            ramenRepo.addRamen(id, meatId, name, broth, price);
+            //pake controller
+            //ramenRepo.addRamen(id, meatId, name, broth, price);
         }
 
         public void updateRamen(int id, int meatId, string name, string broth, string price)
         {
-            ramenRepo.updateRamen(id, meatId, name, broth, price);
+            //pake controller
+            //ramenRepo.updateRamen(id, meatId, name, broth, price);
         }
 
         public void delRamen(int id)
         {
-            ramenRepo.delRamen(id);
+            //pake controller
+            //ramenRepo.delRamen(id);
         }
         //------------------------------------------------------------
 
 
         //BERHUBUNGAN SAMA USER
-        public List<User> viewCustomers()
+        /*public List<User> viewCustomers()
         {
             List<User> cust = userRepo.GetAllCustomer(); 
             return cust;
@@ -48,7 +51,7 @@ namespace RAAMEN_Project.Handler
             string password)
         {
             userRepo.updateUser(id, roleId, username, email, gender, password);
-        }
+        }*/
         //------------------------------------------------------------
     }
 

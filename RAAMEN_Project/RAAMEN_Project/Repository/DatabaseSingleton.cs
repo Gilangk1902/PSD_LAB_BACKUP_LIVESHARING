@@ -6,7 +6,7 @@ using RAAMEN_Project.Model;
 
 namespace RAAMEN_Project.Repository
 {
-    public class Database
+    public class DatabaseSingleton
     {
         private static Database1Entities1 db = new Database1Entities1();
 

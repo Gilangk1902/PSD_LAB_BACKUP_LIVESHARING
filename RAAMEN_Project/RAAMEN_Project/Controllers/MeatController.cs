@@ -1,6 +1,7 @@
 ﻿using RAAMEN_Project.Factory;
 using RAAMEN_Project.Handler;
 using RAAMEN_Project.Model;
+using RAAMEN_Project.Repository;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -31,6 +32,14 @@ namespace RAAMEN_Project.Controllers
         public static List<Meat> GetAll()
         {
             return meatHandler.GetAll();
+        }
+        public static List<String> GetAllNames()
+        {
+            return meatHandler.GetAllNames();
+        }
+        public static int GetMeatId(string meat_selector)
+        {
+            return meatHandler.GetMeatId(meat_selector);
         }
     }
 }

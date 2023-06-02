@@ -12,18 +12,19 @@ namespace RAAMEN_Project.Handler
 
         RamenRepository ramenRepo = new RamenRepository();
         UserRepository userRepo = new UserRepository();
-        HeaderRepository headerRepo = new HeaderRepository();
+        TransactionRepository trRepo = new TransactionRepository();
+        //HeaderRepository headerRepo = new HeaderRepository();
 
         //BERHUBUNGAN SAMA RAMEN
         public List<Ramen> viewRamen()
         {
-            List<Ramen> ramens = ramenRepo.getAllRamen();
+            List<Ramen> ramens = ramenRepo.GetAll();
             return ramens;
         }
 
         public Ramen orderRamen(int id)
         {
-            Ramen ramen = ramenRepo.getRamen(id);
+            Ramen ramen = ramenRepo.GetById(id);
             //IF order buton is pressed, THEN:
             return ramen; //ni gw masi bingung antara di return ato langsung add ke cart aja
         }
@@ -47,7 +48,7 @@ namespace RAAMEN_Project.Handler
         //TRANSACTION
         public List<Header> viewTransactionHistory()
         {
-            List<Header> transcationHistories = headerRepo.GetAll();
+            List<Header> transcationHistories = trRepo.GetAllHeader();
             return transcationHistories;
         }
         //------------------------------------------------------------

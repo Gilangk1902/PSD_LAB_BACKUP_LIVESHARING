@@ -8,11 +8,10 @@ namespace RAAMEN_Project.Factory
 {
     public class RamenFactory
     {
-        public static Ramen CreateRamen(int id, int meatId, string name, string broth, string price)
+        public static Ramen CreateRamen( int meatId, string name, string broth, string price)
         {
             Ramen ramen = new Ramen
             {
-                id = id,
                 Meatid = meatId,
                 Name = name,
                 Broth = broth,

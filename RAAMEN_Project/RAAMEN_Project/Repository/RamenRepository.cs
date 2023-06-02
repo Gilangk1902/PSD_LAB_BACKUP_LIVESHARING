@@ -1,84 +1,57 @@
-﻿using System;
+﻿using RAAMEN_Project.Model;
+using RAAMEN_Project.Repository;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using RAAMEN_Project.Model;
-using RAAMEN_Project.Factory;
 
-namespace RAAMEN_Project.Repository
+public class RamenRepository :IRepository<Ramen>
 {
-    public class RamenRepository : IRepository<Ramen>
+    Database1Entities1 db = DatabaseSingleton.getInstance();
+    public void Add(Ramen newRamen)
     {
-        public void Add(Ramen newRamen)
-        {
-            Database.getInstance().Ramen1.Add(newRamen);
-        }
-
-        public void Delete(int id)
-        {
-            Database.getInstance().Ramen1.Remove(GetById(id));
-        }
-
-        public List<Ramen> GetAll()
-        {
-            return Database.getInstance().Ramen1.ToList();
-        }
-
-        public Ramen GetById(int id)
-        {
-            return Database.getInstance().Ramen1.Find(id);
-        }
-
-        public void Update(int id, Ramen entity)
-        {
-            Ramen ramen = GetById(id);
-            ramen.id = entity.id;
-            ramen.Meatid = entity.Meatid;
-            ramen.Name = entity.Name;
-            ramen.Broth = entity.Broth;
-            ramen.Price = entity.Price;
-
-            Database.getInstance().SaveChanges();
-        }
+        DatabaseSingleton.getInstance().Ramen1.Add(newRamen);
+        newRamen.id = SetId();
+        DatabaseSingleton.getInstance().SaveChanges();
     }
-    /*public class RamenRepository
+
+    private int SetId()
     {
-        private Database1Entities1 db = Database.getInstance();
+        int id = 0;
+        int lastId = (from ramen in db.Ramen1 select ramen.id).ToList().LastOrDefault();
 
-        public List<Ramen> getAllRamen()
+        if (DatabaseSingleton.getInstance().Ramen1 == null)
         {
-            List<Ramen> ramens = db.Ramen1.ToList();
-            return ramens;
+            id = 1;
         }
-
-        public Ramen getRamen(int id)
+        else
         {
-            return db.Ramen1.Find(id);
+            id = lastId + 1;
         }
+        return id;
+    }
 
-        public void addRamen(int id, int meatId, string name, string broth, string price)
-        {
-            Ramen ramen = RamenFactory.CreateRamen(id, meatId, name, broth, price);
-            db.Ramen1.Add(ramen);
-            db.SaveChanges();
-        }
+    public void Delete(int id)
+    {
+        DatabaseSingleton.getInstance().Ramen1.Remove(GetById(id));
+        DatabaseSingleton.getInstance().SaveChanges();
+    }
 
-        public void delRamen(int id)
-        {
-            db.Ramen1.Remove(db.Ramen1.Find(id));
-            db.SaveChanges();
-        }
+    public List<Ramen> GetAll()
+    {
+       return DatabaseSingleton.getInstance().Ramen1.ToList();
+    }
 
-        public void updateRamen(int id, int meatId, string name, string broth, string price)
-        {
-            Ramen ramen = db.Ramen1.Find(id);
-            ramen.Meatid = meatId;
-            ramen.Name = name;
-            ramen.Broth = broth;
-            ramen.Price = price;
+    public Ramen GetById(int id)
+    {
+        return DatabaseSingleton.getInstance().Ramen1.Find(id);
+    }
 
-            db.SaveChanges();
-        }
+    public void Update(int id, Ramen newRamen)
+    {
+        Ramen ramen = GetById(id);
+        ramen.Name = newRamen.Name;
+        ramen.Broth = newRamen.Broth;
+        ramen.Price = newRamen.Price;
 
-    }*/
+        DatabaseSingleton.getInstance().SaveChanges();
+    }
 }
