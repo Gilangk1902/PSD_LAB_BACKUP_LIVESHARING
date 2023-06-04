@@ -17,7 +17,7 @@ namespace RAAMEN_Project.Views
         {
             if (Session["User"] != null || Request.Cookies["UserCookie"] != null)
             {
-                Response.Redirect("~/Views/Home.aspx");
+                Response.Redirect("/ViewRamen");
             }
         }
 
@@ -27,8 +27,31 @@ namespace RAAMEN_Project.Views
             string password = PasswordTxt.Text.ToString();
             bool rememberMe = RememberCheckBox.Checked;
             string valid = UserController.validateLogin(username, password, rememberMe);
-            ErrorLbl.Visible = true;
-            ErrorLbl.Text = valid;
+
+            if (valid == null || valid == "")
+            {
+                int id = (int)Session["ID"];
+                User user = UserController.Get(id);
+                int roleId = user.Roleid;
+
+                if(roleId == 1)
+                {
+                    Response.Redirect("~/ViewRamen");
+                }
+                else if (roleId == 2)
+                {
+                    Response.Redirect("~/ViewCustomers");
+                }
+                else if (roleId == 3)
+                {
+                    Response.Redirect("~/ViewStaffs");
+                }
+            }
+            else
+            {
+                ErrorLbl.Text = valid;
+                ErrorLbl.Visible = true;
+            }
         }
     }
 }

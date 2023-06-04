@@ -13,6 +13,15 @@ namespace RAAMEN_Project.Controllers
     {
         private static TransactionHandler trHandler = new TransactionHandler();
 
+        public static void AddHeader(int id, int customer_id, int staff_id, DateTime date)
+        {
+            trHandler.AddHeader(TransactionFactory.CreateHeader(id, customer_id, staff_id, date));
+        }
+        public static void AddDetail(int header_id, int ramen_id, int quantity)
+        {
+            trHandler.AddDetail(TransactionFactory.CreateDetail(header_id, ramen_id, quantity));
+        }
+
         public static List<Header> getAllHeader()
         {
             return trHandler.GetAll();
@@ -21,6 +30,11 @@ namespace RAAMEN_Project.Controllers
         public static List<Header> getAllHeaderById(int id)
         {
             return trHandler.GetAllHeadersById(id);
+        }
+
+        public static List<Detail> GetDetails(int id)
+        {
+            return trHandler.GetDetails(id);
         }
     }
 }

@@ -15,12 +15,10 @@ namespace RAAMEN_Project.Views
         {
             if (!IsPostBack)
             {
-                int id = (int)Session["ID"];
-
-                User user = UserController.Get(id);
-                username_Label.Text = user.Username;
-                email_Label.Text = user.Email;
-                gender_Label.Text = user.Gender;
+                if (Session["User"] != null)
+                {
+                    BindUserData();
+                }
             }
 
         }
@@ -28,6 +26,29 @@ namespace RAAMEN_Project.Views
         protected void UpdateBtn_Click(object sender, EventArgs e)
         {
             Response.Redirect("/UpdateProfile?ID=" + (int)Session["ID"]);
+        }
+
+
+        private void BindUserData()
+        {
+            if (Request.Cookies["UserId"] != null)
+            {
+                int id = int.Parse(Request.Cookies["UserId"].Value);
+
+                User user = UserController.Get(id);
+                username_Label.Text = user.Username;
+                email_Label.Text = user.Email;
+                gender_Label.Text = user.Gender;
+            }
+            else
+            {
+                int id = (int)Session["ID"];
+
+                User user = UserController.Get(id);
+                username_Label.Text = user.Username;
+                email_Label.Text = user.Email;
+                gender_Label.Text = user.Gender;
+            }
         }
     }
 }

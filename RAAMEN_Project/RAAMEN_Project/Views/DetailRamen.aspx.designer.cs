@@ -60,6 +60,15 @@ namespace RAAMEN_Project.Views
         protected global::System.Web.UI.WebControls.LinkButton updateBtn;
 
         /// <summary>
+        /// orderBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton orderBtn;
+
+        /// <summary>
         /// deleteBtn control.
         /// </summary>
         /// <remarks>

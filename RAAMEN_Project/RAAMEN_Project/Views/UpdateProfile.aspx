@@ -30,6 +30,14 @@
                     <asp:TextBox ID="password_TextBox" runat="server" class="form-control"></asp:TextBox>
                     <asp:Label ID="password_Label" runat="server" Text="" Visible="true" ForeColor="Red"></asp:Label>
                 </div>
+                <div class="mb-3">
+                <p class="card-text">Confirm Password</p>
+                    <asp:TextBox ID="confirmPassword_TextBox" runat="server" class="form-control"></asp:TextBox>
+                    <asp:Label ID="confirmPassword_Label" runat="server" Text="" Visible="true" ForeColor="Red"></asp:Label>
+                </div>
+                <div class="mb-3">
+                    <asp:Label ID="errorMessage" runat="server" Text="" Visible="true" ForeColor="Red"></asp:Label>
+                </div>
                 <div>
                     <asp:Button ID="updateProfile_Button" runat="server" Text="Update Ramen" class="btn btn-success" style="width: 100%;"
                         OnClick="UpdateProfile_Button_Click"/>

@@ -114,9 +114,11 @@
     <Content Include="Styles\bootstrap.bundle.min.js" />
     <Content Include="Styles\bootstrap.min.css" />
     <Content Include="Views\DetailRamen.aspx" />
+    <Content Include="Views\HomePage.aspx" />
     <Content Include="Views\InsertRamen.aspx" />
     <Content Include="Views\Login.aspx" />
     <Content Include="Views\ProfilePage.aspx" />
+    <Content Include="Views\RamenCart.aspx" />
     <Content Include="Views\Register.aspx" />
     <Content Include="Views\Test.aspx" />
     <Content Include="Views\Transaction.aspx" />
@@ -125,6 +127,7 @@
     <Content Include="Views\UpdateRamen.aspx" />
     <Content Include="Views\ViewCustomers.aspx" />
     <Content Include="Views\ViewRamen.aspx" />
+    <Content Include="Views\ViewStaff.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -196,6 +199,13 @@
     <Compile Include="Views\DetailRamen.aspx.designer.cs">
       <DependentUpon>DetailRamen.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\HomePage.aspx.cs">
+      <DependentUpon>HomePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\HomePage.aspx.designer.cs">
+      <DependentUpon>HomePage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\InsertRamen.aspx.cs">
       <DependentUpon>InsertRamen.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -216,6 +226,13 @@
     </Compile>
     <Compile Include="Views\ProfilePage.aspx.designer.cs">
       <DependentUpon>ProfilePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RamenCart.aspx.cs">
+      <DependentUpon>RamenCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\RamenCart.aspx.designer.cs">
+      <DependentUpon>RamenCart.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
@@ -279,6 +296,13 @@
     </Compile>
     <Compile Include="Views\ViewRamen.aspx.designer.cs">
       <DependentUpon>ViewRamen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ViewStaff.aspx.cs">
+      <DependentUpon>ViewStaff.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ViewStaff.aspx.designer.cs">
+      <DependentUpon>ViewStaff.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

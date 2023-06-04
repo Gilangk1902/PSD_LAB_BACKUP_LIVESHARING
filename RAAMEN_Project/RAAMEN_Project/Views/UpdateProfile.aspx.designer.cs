@@ -78,6 +78,33 @@ namespace RAAMEN_Project.Views
         protected global::System.Web.UI.WebControls.Label password_Label;
 
         /// <summary>
+        /// confirmPassword_TextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox confirmPassword_TextBox;
+
+        /// <summary>
+        /// confirmPassword_Label control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label confirmPassword_Label;
+
+        /// <summary>
+        /// errorMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label errorMessage;
+
+        /// <summary>
         /// updateProfile_Button control.
         /// </summary>
         /// <remarks>

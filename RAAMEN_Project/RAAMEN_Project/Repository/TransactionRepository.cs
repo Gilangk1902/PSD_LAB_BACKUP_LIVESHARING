@@ -28,7 +28,7 @@ namespace RAAMEN_Project.Repository
 
         public List<Header> GetAllHeaderById(int id)
         {
-            List<Header> list = (from header in db.Headers where header.id == id select header).ToList();
+            List<Header> list = (from header in db.Headers where header.User.Id == id select header).ToList();
             return list;
         }
 
@@ -58,9 +58,9 @@ namespace RAAMEN_Project.Repository
             db.SaveChanges();
         }
 
-        public List<Detail> GetAllDetail()
+        public List<Detail> GetAllDetail(int id)
         {
-            return db.Details.ToList();
+            return db.Details.Where(x => x.Headerid == id).ToList();
         }
 
         public Detail GetDetailById(int id)

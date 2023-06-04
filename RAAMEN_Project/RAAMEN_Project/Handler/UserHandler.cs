@@ -29,7 +29,10 @@ namespace RAAMEN_Project.Handler
         {
             return userRepo.GetAllCustomer();
         }
-
+        public List<User> GetAllStaff()
+        {
+            return userRepo.GetAllStaff();
+        }
         public Role GetRole(int id)
         {
             return userRepo.getRole(id);

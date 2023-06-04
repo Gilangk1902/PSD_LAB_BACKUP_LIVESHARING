@@ -3,8 +3,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div>
-        <asp:GridView ID="trGridView" runat="server" AutoGenerateColumns="False">
+        <asp:GridView ID="trGridView" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="trGridView_SelectedIndexChanged1">
             <Columns>
+                <asp:BoundField DataField="id" HeaderText="HeaderId" SortExpression="id" />
                 <asp:BoundField DataField="Date" HeaderText="Date" SortExpression="Date" />
                 <asp:CommandField ButtonType="Button" ShowSelectButton="True" />
             </Columns>

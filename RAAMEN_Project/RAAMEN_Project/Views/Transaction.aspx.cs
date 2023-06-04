@@ -24,9 +24,13 @@ namespace RAAMEN_Project.Views
             }
         }
 
-        protected void trGridview_SelectedIndexChanged(object sender, EventArgs e)
+       
+
+        protected void trGridView_SelectedIndexChanged1(object sender, EventArgs e)
         {
-            Response.Redirect("/ViewRamen");
+            GridViewRow row = trGridView.SelectedRow;
+            int id = int.Parse(row.Cells[0].Text.ToString());
+            Response.Redirect("/TransactionDetail?ID=" + id);
         }
     }
 }

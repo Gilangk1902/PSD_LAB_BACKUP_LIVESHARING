@@ -16,5 +16,18 @@ namespace RAAMEN_Project.Views
 
             }
         }
+
+        protected void LogoutBtn_Click(object sender, EventArgs e)
+        {
+            Session["User"] = null;
+            HttpContext.Current.Session.Clear();
+            if (HttpContext.Current.Request.Cookies["UserCookie"] != null)
+            {
+                var userCookie = new HttpCookie("UserCookie");
+                userCookie.Expires = DateTime.Now.AddDays(-1);
+                HttpContext.Current.Response.Cookies.Add(userCookie);
+            }
+            Response.Redirect("/LoginPage");
+        }
     }
 }

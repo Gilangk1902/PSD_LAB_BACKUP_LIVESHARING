@@ -18,9 +18,11 @@ namespace RAAMEN_Project
             routes.MapPageRoute("RegisterPage", "RegisterPage", "~/Views/Register.aspx");
             routes.MapPageRoute("DetailPage", "DetailPage", "~/Views/DetailRamen.aspx");
             routes.MapPageRoute("ViewCustomers", "ViewCustomers", "~/Views/ViewCustomers.aspx");
+            routes.MapPageRoute("ViewStaffs", "ViewStaffs", "~/Views/ViewStaff.aspx");
             routes.MapPageRoute("ProfilePage", "ProfilePage", "~/Views/ProfilePage.aspx");
             routes.MapPageRoute("TransactionPage", "TransactionPage", "~/Views/Transaction.aspx");
             routes.MapPageRoute("UpdateProfile", "UpdateProfile", "~/Views/UpdateProfile.aspx");
+            routes.MapPageRoute("TransactionDetail", "TransactionDetail", "~/Views/TransactionDetail.aspx");
         }
     }
 }

@@ -9,7 +9,7 @@ namespace RAAMEN_Project.Factory
     public class TransactionFactory
     {
         //HEADER
-        public static Header Create(int id, int customer_id, int staff_id, DateTime date)
+        public static Header CreateHeader(int id, int customer_id, int staff_id, DateTime date)
         {
             return new Header()
             {
@@ -21,7 +21,7 @@ namespace RAAMEN_Project.Factory
         }
 
         //DETAIL
-        public static Detail Create(int header_id, int ramen_id, int quantity)
+        public static Detail CreateDetail(int header_id, int ramen_id, int quantity)
         {
             return new Detail()
             {

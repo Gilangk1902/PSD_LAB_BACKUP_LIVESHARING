@@ -19,6 +19,7 @@
                 <li>Cart</li>
                 <li><a href="/LoginPage">Login</a></li>
                 <li><a href="/ProfilePage">Profile</a></li>
+                <li><asp:Button ID="logout_Button" runat="server" Text="logout" OnClick="LogoutBtn_Click"/></li>
             </ul>
         </div>
         <div>

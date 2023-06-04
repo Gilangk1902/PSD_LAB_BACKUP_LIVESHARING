@@ -35,14 +35,17 @@ namespace RAAMEN_Project.Controllers
             {
                 return "Credential is not valid";
             }
+            List<Ramen> cart = new List<Ramen>();
             HttpContext.Current.Session["Role"] = "User";
             HttpContext.Current.Session["User"] = user;
             HttpContext.Current.Session["Username"] = username;
             HttpContext.Current.Session["ID"] = user.Id;
             HttpContext.Current.Session["Email"] = user.Email;
+            HttpContext.Current.Session["Cart"] = cart;
             if (rememberMe)
             {
                 HttpCookie userCookie = new HttpCookie("UserCookie");
+                userCookie.Values.Add("UserId", user.Id.ToString());
                 userCookie.Values.Add("Username", user.Username);
                 userCookie.Values.Add("Password", password);
                 userCookie.Expires = DateTime.Now.AddHours(24);
@@ -100,9 +103,21 @@ namespace RAAMEN_Project.Controllers
             throw new NotImplementedException();
         }
 
-        public static void Update(int target_id, int role_id,string username, string email, string gender, string password)
+        public static void Update(int target_id, int role_id,string username, string email, string gender, 
+            string password, string confirm_password)
         {
-            userHandler.Update(target_id, UserFactory.CreateUser(role_id, username, email, gender, password));
+            if (password.Equals(confirm_password))
+            {
+                userHandler.Update(target_id, UserFactory.CreateUser(role_id, username, email, gender, password));
+            }
+        }
+        public static string SetErrorMessage(string password, string confirm_password)
+        {
+            if (!password.Equals(confirm_password))
+            {
+                return "password doesnt match";
+            }
+            return "";
         }
         public static User Get(int id)
         {
@@ -111,6 +126,10 @@ namespace RAAMEN_Project.Controllers
         public static List<User> GetAllCustomer()
         {
             return userHandler.GetAllCustomer();
+        }
+        public static List<User> GetAllStaff()
+        {
+            return userHandler.GetAllStaff();
         }
         public static Role getRole(int id)
         {

@@ -8,23 +8,18 @@ using RAAMEN_Project.Repository;
 
 namespace RAAMEN_Project.Handler
 {
-    public class TransactionHandler : IHandler<Header>
+    public class TransactionHandler
     {
         TransactionRepository trRepo = new TransactionRepository();
 
-        public void Add(Header type)
+        public void AddHeader(Header type)
         {
-            throw new NotImplementedException();
+            trRepo.AddHeader(type);
         }
 
-        public void Delete(int id)
+        public void AddDetail(Detail type)
         {
-            throw new NotImplementedException();
-        }
-
-        public Header Get(int id)
-        {
-            throw new NotImplementedException();
+            trRepo.AddDetail(type);
         }
 
         public List<Header> GetAll()
@@ -37,9 +32,9 @@ namespace RAAMEN_Project.Handler
             return trRepo.GetAllHeaderById(id);
         }
 
-        public void Update(int id, Header type)
+        public List<Detail> GetDetails(int id)
         {
-            throw new NotImplementedException();
+            return trRepo.GetAllDetail(id);
         }
     }
 }
