@@ -14,11 +14,11 @@
     <form id="form1" runat="server">
         <div id="header">
             <ul>
-                <li><a href="/ViewRamen">View Ramen</a></li>
-                <li><a href="/InsertRamen">Insert Ramen</a><lie>
+                <li runat="server" id="insert_ramen_li"><a href="/InsertRamen">Insert Ramen</a><li>
+                <asp:HyperLink ID="HomeHyperlink" runat="server" NavigateUrl="">Home</asp:HyperLink>
                 <li>Cart</li>
-                <li><a href="/LoginPage">Login</a></li>
-                <li><a href="/ProfilePage">Profile</a></li>
+                <li runat="server" id="login_li"><a href="/LoginPage">Login</a></li>
+                <li runat="server" id="profile_li"><a href="/ProfilePage">Profile</a></li>
                 <li><asp:Button ID="logout_Button" runat="server" Text="logout" OnClick="LogoutBtn_Click"/></li>
             </ul>
         </div>

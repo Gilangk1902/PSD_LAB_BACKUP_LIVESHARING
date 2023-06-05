@@ -9,17 +9,6 @@
             </h2>
         </div>
         <div class="container d-flex justify-content-center" style="margin-top: 2.5%;">
-<%--            <div class="row">
-                <div class="col-sm">
-                    <p>Username</p>
-                </div>
-                <div class="col-sm">
-                    <p>Email</p>
-                </div>
-                <div class="col-sm">
-                    <p>Gender</p>
-                </div>
-            </div> --%>
             <asp:Repeater ID="CardRepeater" runat="server">
                 <HeaderTemplate>
                     <table class="table table-bordered">
@@ -35,17 +24,6 @@
                         <td><%# Eval("Email") %></td>
                         <td><%# Eval("Gender") %></td>
                     </tr>
-                    <%--<div class="row">
-                        <div class="col-sm">
-                            <p><%# Eval("Username") %></p>
-                        </div>
-                        <div class="col-sm">
-                            <p><%# Eval("Email") %></p>
-                        </div>
-                        <div class="col-sm">
-                            <p><%# Eval("Gender") %></p>
-                        </div>
-                    </div> --%>
                 </ItemTemplate>
                 <FooterTemplate>
                     </table>
