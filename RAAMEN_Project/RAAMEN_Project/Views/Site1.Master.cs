@@ -54,7 +54,6 @@ namespace RAAMEN_Project.Views
 
         private void ManageItem_BasedOn(int roleId)
         {
-            //TODO : Display/hide item based on role
             SetHomeUrl(roleId);
         }
 
